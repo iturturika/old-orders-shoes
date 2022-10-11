@@ -10,8 +10,7 @@ function App() {
             <h3>Old Orders</h3>
             <p>shoes store</p>
           </div>
-
-          
+            <></>
         </div>
         <div className="RightPart">
           <ul className="">
