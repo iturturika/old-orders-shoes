@@ -89,7 +89,7 @@ body {
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
   background: #fff; /* Цвет фона */
-    box-shadow: 0 0 10px rgba(241, 239, 239, 0.5); /* Параметры тени */
+    box-shadow: 0 0 10px rgba(223, 222, 222, 0.5); /* Параметры тени */
     padding: 10px;
   margin-top: 64px;
   display: grid;
@@ -145,3 +145,56 @@ body {
   font-size: 20px;
   padding: 45px;
 }
+.headerSection{
+  display: grid;
+  grid-template-columns: 300px 300px;
+  grid-column-gap: 390px;
+}
+.card {
+  margin-top: 50px;
+  width: 200px;
+  height: 260px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  background: #fff; /* Цвет фона */
+    box-shadow: 0 0 10px rgba(223, 222, 222, 0.5); /* Параметры тени */
+    padding: 25px;
+  font-size: 16px;
+}
+
+.shoesCardIcon {
+  width: 190px;
+  height: 100px;
+}
+.favourite {
+  cursor: pointer;
+}
+
+
+.bottomSectionCard {
+  margin-top: 25px;
+  display: grid;
+  grid-template-columns: 80px 30px;
+  grid-gap: 85px;
+  align-items: end;
+
+  h4{
+    font-weight: 400;
+    color: #d6d4d4;
+  }
+  .price {
+    font-weight: 700;
+    font-size: 20px;
+    color: #000;
+  }
+
+  
+
+  .addToCartIcon {
+    cursor: pointer;
+  } 
+}
+

@@ -1,5 +1,6 @@
 import React from "react";
-import {Banner} from "../src/components/banner/index"
+import {Banner} from "./components/Banner/index"
+import {Card} from "./components/Card/index"
 function App() {
   return (
     <div className="wrapper">
@@ -7,7 +8,7 @@ function App() {
         <div className="LeftPart">
           <div><img src="../images/logo.png" alt="cart" width={'50px'} className="logoIcon"/></div>
           <div className="text1">
-            <h3>Old Orders</h3>
+            <h3>Old Order</h3>
             <p>shoes store</p>
           </div>
             <></>
@@ -25,7 +26,11 @@ function App() {
       <Banner/>
 
       <section className="main">
-        <div><h2>All shoes</h2></div>
+        <div className="headerSection">
+          <h2>All shoes</h2>
+          <input name="name" className="inputSearch" />
+        </div>
+        <Card/>
       </section>
     </div>
   );
