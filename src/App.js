@@ -24,13 +24,33 @@ function App() {
       </header>
 
       <Banner/>
-
+      <div className="overlay">
+        <div className="drawer">
+          
+        </div>
+      </div>
       <section className="main">
         <div className="headerSection">
           <h2>All shoes</h2>
-          <input name="name" className="inputSearch" />
+          <div className="search">
+            <img src="../images/search.svg" alt="search" className="searchIcon"/>
+            <input placeholder="Search ..."/>
+          </div>
         </div>
-        <Card/>
+        <div className="shopItems">
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+          <Card text="Мужские Кроссовки Old Older" price="1700mdl" imgUrl="../images/shoes.png"/>
+        </div>
       </section>
     </div>
   );
