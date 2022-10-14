@@ -13,22 +13,22 @@ const arr = [{
 {
   title: "Мужские Кроссовки Old Older",
   price: 1700,
-  imgUrl: "../images/shoes.png",
+  imgUrl: "../images/blue.jpg",
 },
 {
   title: "Мужские Кроссовки Old Older",
   price: 1700,
-  imgUrl: "../images/shoes.png",
+  imgUrl: "../images/green.jpg",
 },
 {
   title: "Мужские Кроссовки Old Older",
   price: 1700,
-  imgUrl: "../images/shoes.png",
+  imgUrl: "../images/rose.jpg",
 },
 {
   title: "Мужские Кроссовки Old Older",
   price: 1700,
-  imgUrl: "../images/shoes.png",
+  imgUrl: "../images/black-and-blue.jpg",
 },
 ]
 

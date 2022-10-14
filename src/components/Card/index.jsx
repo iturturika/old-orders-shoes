@@ -1,5 +1,11 @@
 import React from 'react'
 
+
+const onClickPlus = () => {
+  alert("Ты пидор");
+
+}
+
 export const Card = (props) => {
   return (
     <div className="card">
@@ -9,7 +15,7 @@ export const Card = (props) => {
           <div className="bottomSectionCard">
            <h4>PRICE: <p className="price">{props.price}mdl</p>
            </h4>
-           <img src="../images/adToCartIcon.png" alt="addToCartIcon" className="addToCartIcon"/>
+           <img src="../images/adToCartIcon.png" alt="addToCartIcon" className="addToCartIcon" onClick={onClickPlus}/>
           </div>
         </div>
   )
