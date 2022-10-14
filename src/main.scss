@@ -101,31 +101,7 @@ body {
   .rightSection {
     font-size: 25px;
   }
-  .button {
-    width: 220px;
-    height: 40px;
-    font-size: 20px;
-    font-weight: 700;
-    background-color: #9ccfec;
-    border: 0;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
-    color: #fff;
-    margin-top: 15px;
-    cursor: pointer;
-
-}
-  .button:hover {
-    background-color: #bedef1 ;
-    transition: 0.15s ease-in-out;
-    -webkit-transition: 0.15s ease-in-out;
-    -moz-transition: 0.15s ease-in-out;
-    -ms-transition: 0.15s ease-in-out;
-    -o-transition: 0.15s ease-in-out;
-}
+  
 
   .bannerImg {
     width: 340px;
@@ -139,7 +115,31 @@ body {
 }
 
 }
+.button {
+  width: 220px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #9ccfec;
+  border: 0;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  color: #fff;
+  margin-top: 15px;
+  cursor: pointer;
 
+}
+.button:hover {
+  background-color: #bedef1 ;
+  transition: 0.15s ease-in-out;
+  -webkit-transition: 0.15s ease-in-out;
+  -moz-transition: 0.15s ease-in-out;
+  -ms-transition: 0.15s ease-in-out;
+  -o-transition: 0.15s ease-in-out;
+}
 
 .main {
   font-size: 20px;
@@ -229,14 +229,87 @@ body {
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
+  height: 200%;
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
   .drawer {
-    position: absolute;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    position: fixed;
     width: 385px;
     height: 100%;
     background-color: #fff;
     right: 0;
+  }
+  .CartItem{
+    display: grid;
+    padding: 0px;
+    margin-top: 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+    grid-template-columns: 90px 150px 40px;
+    grid-column-gap: 20px;
+    align-items: center;
+    width: 325px;
+    height: 120px;
+    border: solid 1px #F3F3F3;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.cartItems {
+  overflow: auto;
+  width: 120%;
+}
+  .shoesCartIcon {
+    width: 90px;
+    height: 50px;
+  }
+  .deleteFromCartIcon{
+    cursor: pointer;
+  }
+  .buttonCart{
+    width: 325px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: 700;
+  background-color: #9ccfec;
+  border: 0;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  color: #fff;
+  margin: 30px;
+  cursor: pointer;
+  }
+  .buttonCart:hover{
+    background-color: #bedef1 ;
+    transition: 0.15s ease-in-out;
+    -webkit-transition: 0.15s ease-in-out;
+    -moz-transition: 0.15s ease-in-out;
+    -ms-transition: 0.15s ease-in-out;
+    -o-transition: 0.15s ease-in-out;
+  }
+  .cartTotalBlock{
+    margin: 30px 30px 0px 30px;
+    list-style: none;
+    .cartTotalBlockList{
+      display: flex;
+      flex: 1;
+      div{
+        
+        flex: 1;
+        margin-left: 5px;
+        margin-right: 5px;
+        height: 15px;
+        border-bottom: dotted 1px #000;
+
+      }
+    }
   }
 }

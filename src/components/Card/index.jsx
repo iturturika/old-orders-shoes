@@ -7,7 +7,7 @@ export const Card = (props) => {
           <img src={props.imgUrl} alt="shoes" className="shoesCardIcon"/>
           <h3>{props.text}</h3>
           <div className="bottomSectionCard">
-           <h4>PRICE: <p className="price">{props.price}</p>
+           <h4>PRICE: <p className="price">{props.price}mdl</p>
            </h4>
            <img src="../images/adToCartIcon.png" alt="addToCartIcon" className="addToCartIcon"/>
           </div>
