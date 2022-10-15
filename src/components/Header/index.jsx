@@ -1,11 +1,15 @@
 import React from 'react'
+import {Drawer} from '../Drawer/index';
 
-export const Header = () => {
-  
+export const Header = (props) => {
+  const [isOpenCart, setIsOpenCart] = React.useState(false);
+    const onClickCart = () => {
+        setIsOpenCart(!isOpenCart);
+    }
   
   return (
-
     <header className="header">
+        {isOpenCart ? <Drawer arr={props.arr} onClick={onClickCart}/> : undefined}
         <div className="LeftPart">
           <div><img src="../images/logo.png" alt="cart" width={'50px'} className="logoIcon"/></div>
           <div className="text1">
@@ -16,7 +20,7 @@ export const Header = () => {
         </div>
         <div className="RightPart">
           <ul className="">
-            <li className="icon"><img src="../images/cart.svg" alt="cart" width={"30px"}/><p>1200mdl</p></li>
+            <li className="icon"><img src="../images/cart.svg" alt="cart" width={"30px"} onClick={onClickCart}/><p>1200mdl</p></li>
             <li className="icon"><img src="../images/heart.svg" alt="heart" width={"30px"}/></li>
             <li className="icon"><img src="../images/user.svg" alt="user" width={"30px"}/></li>
           </ul>
