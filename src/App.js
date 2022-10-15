@@ -74,7 +74,11 @@ function App() {
         <div className="shopItems">
           {
             arr.map((obj) => (
-              <Card text={obj.title} price={obj.price} imgUrl={obj.imgUrl}/>
+              <Card 
+              text={obj.title} 
+              price={obj.price} 
+              imgUrl={obj.imgUrl} 
+              />
             ))
           }
         </div>

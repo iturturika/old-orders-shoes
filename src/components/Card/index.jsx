@@ -1,21 +1,25 @@
 import React from 'react'
 
 
-const onClickPlus = () => {
-  alert("Ты пидор");
-
-}
-
 export const Card = (props) => {
+  const [isAddedToCart, setIsAddedToCart] = React.useState(false);
+  const [isAddedToFavourite, setIsAddedToFavourite] = React.useState(false);
+  const onClickPlus = () => {
+    setIsAddedToCart(!isAddedToCart);
+  }
+  const onClickFavourite = () => {
+    setIsAddedToFavourite(!isAddedToFavourite);
+  }
   return (
+    
     <div className="card">
-          <img src="../images/favouriteIcon.png" alt="favouriteIcon" className="favourite"/>
+          <img src={isAddedToFavourite ? "../images/addedFavouriteIcon.png" : "../images/favouriteIcon.svg"} alt="favouriteIcon" className="favourite" onClick={onClickFavourite}/>
           <img src={props.imgUrl} alt="shoes" className="shoesCardIcon"/>
           <h3>{props.text}</h3>
           <div className="bottomSectionCard">
            <h4>PRICE: <p className="price">{props.price}mdl</p>
            </h4>
-           <img src="../images/adToCartIcon.png" alt="addToCartIcon" className="addToCartIcon" onClick={onClickPlus}/>
+           <img src={isAddedToCart ? "../images/addedIcon.svg" : "../images/adToCartIcon.png"} alt="addToCartIcon" className="addToCartIcon" onClick={onClickPlus}/>
           </div>
         </div>
   )

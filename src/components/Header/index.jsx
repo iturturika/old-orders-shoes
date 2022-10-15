@@ -1,7 +1,10 @@
 import React from 'react'
 
 export const Header = () => {
+  
+  
   return (
+
     <header className="header">
         <div className="LeftPart">
           <div><img src="../images/logo.png" alt="cart" width={'50px'} className="logoIcon"/></div>
