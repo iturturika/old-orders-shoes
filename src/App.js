@@ -5,23 +5,42 @@ import {Header} from "./components/Header/index"
 
 
 
+const arr = [{
+  title: "Мужские Кроссовки Old Older",
+  price: 1700,
+  imgUrl: "../images/shoes.png",
+},
+{
+  title: "Мужские Кроссовки Old Older",
+  price: 1700,
+  imgUrl: "../images/blue.jpg",
+},
+{
+  title: "Мужские Кроссовки Old Older",
+  price: 1700,
+  imgUrl: "../images/green.jpg",
+},
+{
+  title: "Мужские Кроссовки Old Older",
+  price: 1700,
+  imgUrl: "../images/rose.jpg",
+},
+{
+  title: "Мужские Кроссовки Old Older",
+  price: 1700,
+  imgUrl: "../images/black-and-blue.jpg",
+},
+]
 
 
 
 
 function App() {
   
-  const [items, setItems] = React.useState();
-  fetch('https://634d7620acb391d34a9df634.mockapi.io')
-  .then((res) => {
-    return res.json();
-  })
-  .then((json) => {
-    setItems(json);
-  })
+
   return (
     <div className="wrapper">
-      <Header arr={items}/>
+      <Header arr={arr}/>
       
       <Banner/>
 
@@ -35,7 +54,7 @@ function App() {
         </div>
         <div className="shopItems">
           {
-            items.map((obj) => (
+            arr.map((obj) => (
               <Card 
               text={obj.title} 
               price={obj.price} 
