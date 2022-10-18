@@ -6,8 +6,8 @@ import {Header} from "./components/Header/index"
 
 
 const arr = [{
-  title: "Мужские Кроссовки Old Older",
-  price: 1700,
+  title: "OO Retro Skater 001 Panda Shoes",
+  price: 1400,
   imgUrl: "../images/shoes.png",
 },
 {
@@ -30,17 +30,15 @@ const arr = [{
   price: 1700,
   imgUrl: "../images/black-and-blue.jpg",
 },
-]
+]*/
 
 
 
 
 function App() {
-  
-
   return (
     <div className="wrapper">
-      <Header arr={arr}/>
+      <Header arr={items}/>
       
       <Banner/>
 
@@ -54,7 +52,7 @@ function App() {
         </div>
         <div className="shopItems">
           {
-            arr.map((obj) => (
+            items.map((obj) => (
               <Card 
               text={obj.title} 
               price={obj.price} 
