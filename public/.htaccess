@@ -1,2 +1,0 @@
-Header set Access-Control-Allow-Origin 'https://634d7620acb391d34a9df634.mockapi.io'
-Header set Access-Control-Allow-Headers 'Content-Length, Content-Type'

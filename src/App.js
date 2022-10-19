@@ -11,24 +11,24 @@ const arr = [{
   imgUrl: "../images/shoes.png",
 },
 {
-  title: "Мужские Кроссовки Old Older",
-  price: 1700,
-  imgUrl: "../images/blue.jpg",
+  title: "OO Retro Skater 001 Blue Shoes",
+  price: 1600,
+  imgUrl: "../images/blue-and-white.jpg",
 },
 {
-  title: "Мужские Кроссовки Old Older",
-  price: 1700,
+  title: "OO Retro Skater 001 Mocha Shoes",
+  price: 1900,
+  imgUrl: "../images/brown.jpg",
+},
+{
+  title: "OO Retro Skater 001 Black Shoes",
+  price: 1600,
+  imgUrl: "../images/gray.jpg",
+},
+{
+  title: "OO Retro Skater 001 Green Shoes",
+  price: 1400,
   imgUrl: "../images/green.jpg",
-},
-{
-  title: "Мужские Кроссовки Old Older",
-  price: 1700,
-  imgUrl: "../images/rose.jpg",
-},
-{
-  title: "Мужские Кроссовки Old Older",
-  price: 1700,
-  imgUrl: "../images/black-and-blue.jpg",
 },
 ]*/
 
@@ -36,6 +36,7 @@ const arr = [{
 
 
 function App() {
+
   return (
     <div className="wrapper">
       <Header arr={items}/>
