@@ -36,11 +36,13 @@ import {Header} from "./components/Header/index"
 
 function App() {
   const [items, setItems] = React.useState([]);
-  fetch('https://634d7620acb391d34a9df634.mockapi.io/items').then((res) => {
-    return res.json();
-  }).then(json => {
-    setItems(json);
-  })
+  React.useEffect(() => {
+    fetch('https://634d7620acb391d34a9df634.mockapi.io/items').then((res) => {
+      return res.json();
+    }).then(json => {
+      setItems(json);
+    })
+  }, []);
   
   return (
     <div className="wrapper">
@@ -63,6 +65,7 @@ function App() {
               text={obj.title} 
               price={obj.price} 
               imgUrl={obj.imgUrl} 
+              key={obj.id}
               />
             ))
           }
