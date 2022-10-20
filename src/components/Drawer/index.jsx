@@ -7,7 +7,7 @@ export const Drawer = (props) => {
           <h2 style={{margin: "30px"}}>Корзина</h2>
           <div className="cartItems">
           {props.arr.map((obj) => (
-            <CartItem title={obj.title} imgUrl={obj.imgUrl} price={obj.price}/>
+            <CartItem title={obj.title} imgUrl={obj.imgUrl} price={obj.price} onPlus={props.onPlus}/>
           ))}
           </div>
           <ul className="cartTotalBlock">

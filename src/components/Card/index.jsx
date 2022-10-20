@@ -6,6 +6,12 @@ export const Card = (props) => {
   const [isAddedToFavourite, setIsAddedToFavourite] = React.useState(false);
   const onClickPlus = () => {
     setIsAddedToCart(!isAddedToCart);
+    props.onPlus({
+      'title': props.text,
+      'imgUrl': props.imgUrl,
+      'price': props.price,
+      'id': props.id,
+    });
   }
   const onClickFavourite = () => {
     setIsAddedToFavourite(!isAddedToFavourite);

@@ -5,34 +5,6 @@ import {Header} from "./components/Header/index"
 
 
 
-/*const arr = [{
-  title: "OO Retro Skater 001 Panda Shoes",
-  price: 1400,
-  imgUrl: "../images/shoes.png",
-},
-{
-  title: "OO Retro Skater 001 Blue Shoes",
-  price: 1600,
-  imgUrl: "../images/blue-and-white.jpg",
-},
-{
-  title: "OO Retro Skater 001 Mocha Shoes",
-  price: 1900,
-  imgUrl: "../images/brown.jpg",
-},
-{
-  title: "OO Retro Skater 001 Black Shoes",
-  price: 1600,
-  imgUrl: "../images/gray.jpg",
-},
-{
-  title: "OO Retro Skater 001 Green Shoes",
-  price: 1400,
-  imgUrl: "../images/green.jpg",
-},
-]*/
-
-
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -43,10 +15,13 @@ function App() {
       setItems(json);
     })
   }, []);
-  
+  const [cartItems, setCartItems] = React.useState([]);
+  const onAddToCart = (obj) => {
+    setCartItems(prev => [...prev, obj]);
+  }
   return (
     <div className="wrapper">
-      <Header arr={items}/>
+      <Header arr={cartItems}/>
       
       <Banner/>
 
@@ -60,12 +35,14 @@ function App() {
         </div>
         <div className="shopItems">
           {
-            items.map((obj) => (
+            items.map((item) => (
               <Card 
-              text={obj.title} 
-              price={obj.price} 
-              imgUrl={obj.imgUrl} 
-              key={obj.id}
+              id={item.id}
+              text={item.title} 
+              price={item.price} 
+              imgUrl={item.imgUrl}
+              key={item.id}
+              onPlus={onAddToCart}
               />
             ))
           }
