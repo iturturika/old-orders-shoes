@@ -36,7 +36,13 @@ const arr = [{
 
 
 function App() {
-
+  const [items, setItems] = React.useState([]);
+  fetch('https://634d7620acb391d34a9df634.mockapi.io/items').then((res) => {
+    return res.json();
+  }).then(json => {
+    setItems(json);
+  })
+  
   return (
     <div className="wrapper">
       <Header arr={items}/>
@@ -58,6 +64,7 @@ function App() {
               text={obj.title} 
               price={obj.price} 
               imgUrl={obj.imgUrl} 
+              key={obj.id}
               />
             ))
           }
