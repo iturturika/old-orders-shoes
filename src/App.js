@@ -19,6 +19,14 @@ function App() {
   const onAddToCart = (obj) => {
     setCartItems(prev => [...prev, obj]);
   }
+
+
+  const [searchValue, setSearchValue] = React.useState();
+
+  const onChangeSearchInput = (event) => {
+
+    setSearchValue(event.target.value);
+  }
   return (
     <div className="wrapper">
       <Header arr={cartItems}/>
@@ -27,15 +35,16 @@ function App() {
 
       <section className="main">
         <div className="headerSection">
-          <h2>All shoes</h2>
+          <h2>{searchValue ? `Search by request: "${searchValue}"` : "All shoes"}</h2>
           <div className="search">
             <img src="../images/search.svg" alt="search" className="searchIcon"/>
-            <input placeholder="Search ..."/>
+            <input onChange={onChangeSearchInput} value={searchValue} placeholder="Search ..."/>
           </div>
         </div>
         <div className="shopItems">
           {
-            items.map((item) => (
+            items.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+            .map((item) => (
               <Card 
               id={item.id}
               text={item.title} 
