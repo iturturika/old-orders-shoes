@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {Banner} from "./components/Banner/index"
 import {Card} from "./components/Card/index"
 import {Header} from "./components/Header/index"
@@ -8,28 +9,36 @@ import {Header} from "./components/Header/index"
 
 function App() {
   const [items, setItems] = React.useState([]);
+  const [cartItems, setCartItems] = React.useState([]);
   React.useEffect(() => {
-    fetch('https://634d7620acb391d34a9df634.mockapi.io/items').then((res) => {
-      return res.json();
-    }).then(json => {
-      setItems(json);
+    axios.get('https://634d7620acb391d34a9df634.mockapi.io/items').then((res) => {
+      setItems(res.data);
+    });
+    axios.get('https://634d7620acb391d34a9df634.mockapi.io/cartItems').then((res) => {
+      setCartItems(res.data);
     })
   }, []);
-  const [cartItems, setCartItems] = React.useState([]);
+
+
   const onAddToCart = (obj) => {
-    setCartItems(prev => [...prev, obj]);
+    axios.post('https://634d7620acb391d34a9df634.mockapi.io/cartItems', obj);
+    setCartItems((prev) => [...prev, obj]);
   }
 
+  const onRemoveItem = (id) => {
+    axios.delete(`https://634d7620acb391d34a9df634.mockapi.io/cartItems/${id}`);
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  }
 
-  const [searchValue, setSearchValue] = React.useState();
-
+  const [searchValue, setSearchValue] = React.useState('');
   const onChangeSearchInput = (event) => {
-
     setSearchValue(event.target.value);
   }
+
+
   return (
     <div className="wrapper">
-      <Header arr={cartItems}/>
+      <Header arr={cartItems} onRemoveItem={onRemoveItem}/>
       
       <Banner/>
 

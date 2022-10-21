@@ -242,14 +242,17 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
   .drawer {
-    display: flex;
-    flex: 1;
-    flex-direction: column;
+    display: grid;
+    grid-template-rows: 60px 70% 120px;
+    align-items: center;
     position: fixed;
     width: 385px;
     height: 100%;
     background-color: #fff;
     right: 0;
+    .closeButton {
+      cursor: pointer;
+    }
   }
   .CartItem{
     display: grid;
