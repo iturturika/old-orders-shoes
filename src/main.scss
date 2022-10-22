@@ -242,8 +242,7 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
   .drawer {
-    display: grid;
-    grid-template-rows: 60px 650px 80px;
+    
     align-items: center;
     position: fixed;
     width: 385px;
@@ -257,6 +256,12 @@ body {
   .cartHeader {
     display: flex;
     align-items: center;
+  }
+  .emptyCart { 
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    
   }
   .closeButton {
     margin-left: 170px;

@@ -8,7 +8,11 @@ export const CartItem = (props) => {
               <p>{props.title}</p>
               <b>{props.price}mdl</b>
             </div>
-            <img src="../images/deleteFromCart.svg" alt="deleteFromCart" className="deleteFromCartIcon" onClick={() => props.delete(props.productCode)}/>
+            <img 
+            src="../images/deleteFromCart.svg" 
+            alt="deleteFromCart" 
+            className="deleteFromCartIcon" 
+            onClick={() => props.delete(props.id)}/>
           </div>
   )
 }

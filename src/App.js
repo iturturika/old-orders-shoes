@@ -11,10 +11,12 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
   React.useEffect(() => {
-    axios.get('https://634d7620acb391d34a9df634.mockapi.io/items').then((res) => {
+    axios.get('https://634d7620acb391d34a9df634.mockapi.io/items')
+    .then((res) => {
       setItems(res.data);
     });
-    axios.get('https://634d7620acb391d34a9df634.mockapi.io/cartItems').then((res) => {
+    axios.get('https://634d7620acb391d34a9df634.mockapi.io/cartItems')
+    .then((res) => {
       setCartItems(res.data);
     })
   }, []);
@@ -25,9 +27,10 @@ function App() {
     setCartItems((prev) => [...prev, obj]);
   }
 
-  const onRemoveItem = (productCode) => {
-    axios.delete(`https://634d7620acb391d34a9df634.mockapi.io/cartItems/${productCode}`);
-    setCartItems((prev) => prev.filter((item) => item.productCode !== productCode));
+  const onRemoveItem = (id) => {
+    axios.delete(`https://634d7620acb391d34a9df634.mockapi.io/cartItems/${id}`);
+    console.log(id)
+    setCartItems((prev) => prev.filter((item) => item.id !== id));
   }
 
   const [searchValue, setSearchValue] = React.useState('');
