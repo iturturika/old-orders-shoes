@@ -10,6 +10,7 @@ export const Card = (props) => {
       'title': props.text,
       'imgUrl': props.imgUrl,
       'price': props.price,
+      'productCode': props.productCode,
       'id': props.id,
     });
   }

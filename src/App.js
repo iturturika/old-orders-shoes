@@ -25,9 +25,9 @@ function App() {
     setCartItems((prev) => [...prev, obj]);
   }
 
-  const onRemoveItem = (id) => {
-    axios.delete(`https://634d7620acb391d34a9df634.mockapi.io/cartItems/${id}`);
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  const onRemoveItem = (productCode) => {
+    axios.delete(`https://634d7620acb391d34a9df634.mockapi.io/cartItems/${productCode}`);
+    setCartItems((prev) => prev.filter((item) => item.productCode !== productCode));
   }
 
   const [searchValue, setSearchValue] = React.useState('');
@@ -59,6 +59,7 @@ function App() {
               text={item.title} 
               price={item.price} 
               imgUrl={item.imgUrl}
+              productCode={item.productCode}
               key={item.id}
               onPlus={onAddToCart}
               />

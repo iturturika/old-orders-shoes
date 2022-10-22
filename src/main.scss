@@ -243,7 +243,7 @@ body {
   z-index: 1;
   .drawer {
     display: grid;
-    grid-template-rows: 60px 70% 120px;
+    grid-template-rows: 60px 650px 80px;
     align-items: center;
     position: fixed;
     width: 385px;
@@ -253,6 +253,13 @@ body {
     .closeButton {
       cursor: pointer;
     }
+  }
+  .cartHeader {
+    display: flex;
+    align-items: center;
+  }
+  .closeButton {
+    margin-left: 170px;
   }
   .CartItem{
     display: grid;
@@ -274,7 +281,9 @@ body {
 }
 .cartItems {
   overflow: auto;
+  max-height: 650px;
   width: 120%;
+  
 }
   .shoesCartIcon {
     width: 90px;

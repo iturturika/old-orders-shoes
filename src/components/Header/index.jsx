@@ -3,15 +3,14 @@ import {Drawer} from '../Drawer/index';
 
 export const Header = (props) => {
   const [isOpenCart, setIsOpenCart] = React.useState(false);
-    const onClickCart = () => {
-        setIsOpenCart(true);
-    }
-    const closeCart = () => {
-      setIsOpenCart(false);
-    }
+  const onClickCart = () => {
+    setIsOpenCart(!isOpenCart);
+  }
+
+
   return (
     <header className="header">
-        {isOpenCart ? <Drawer arr={props.arr} onClick={onClickCart} removedFromCart={props.onRemoveItem} onClose={closeCart}/> : undefined}
+        {isOpenCart ? <Drawer arr={props.arr} isCartOpened={onClickCart} removedFromCart={props.onRemoveItem}/> : undefined}
         <div className="LeftPart">
           <div><img src="../images/logo.png" alt="cart" width={'50px'} className="logoIcon"/></div>
           <div className="text1">
