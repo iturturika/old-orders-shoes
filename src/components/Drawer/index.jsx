@@ -20,7 +20,7 @@ export const Drawer = (props) => {
               </button>
             </div>
 
-            :  <div>
+            :  <div className="itemsSection">
                 <div className="cartItems">
               {props.arr.map((obj) => (
                 <CartItem 
