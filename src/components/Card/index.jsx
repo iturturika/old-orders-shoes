@@ -14,8 +14,17 @@ export const Card = (props) => {
       'id': props.id,
     });
   }
+
   const onClickFavourite = () => {
     setIsAddedToFavourite(!isAddedToFavourite);
+    props.onClickFavourite({
+      'title': props.text,
+      'imgUrl': props.imgUrl,
+      'price': props.price,
+      'productCode': props.productCode,
+      'id': props.id,
+    });
+
   }
   return (
     

@@ -1,20 +1,17 @@
 import React from "react";
+import {Routes, Route} from "react-router-dom";
 import axios from "axios";
-import {Banner} from "./components/Banner/index"
-import {Card} from "./components/Card/index"
-import {Header} from "./components/Header/index"
+import {Banner} from "./components/Banner/index";
+import {Header} from "./components/Header/index";
+import {Home} from "./pages/Home.jsx";
+import { Favourites } from "./pages/Favourites";
 
 
 
 
 function App() {
-  const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
   React.useEffect(() => {
-    axios.get('https://634d7620acb391d34a9df634.mockapi.io/items')
-    .then((res) => {
-      setItems(res.data);
-    });
     axios.get('https://634d7620acb391d34a9df634.mockapi.io/cartItems')
     .then((res) => {
       setCartItems(res.data);
@@ -33,43 +30,42 @@ function App() {
     setCartItems((prev) => prev.filter((item) => item.id !== id));
   }
 
-  const [searchValue, setSearchValue] = React.useState('');
-  const onChangeSearchInput = (event) => {
-    setSearchValue(event.target.value);
+  const [favouriteItems, setFavouriteItems] = React.useState([]);
+  const onAddToFavourites = (obj) => {
+    axios.post('https://634d7620acb391d34a9df634.mockapi.io/favourites', obj);
+    setFavouriteItems((prev) => [...prev, obj]);
   }
+
+  const onRemoveFromFavourites = (id) => {
+    axios.delete(`https://634d7620acb391d34a9df634.mockapi.io/favourites/${id}`);
+    console.log(id)
+    setFavouriteItems((prev) => prev.filter((item) => item.id !== id));
+  }
+  const [searchValue, setSearchValue] = React.useState('');
+
 
 
   return (
     <div className="wrapper">
-      <Header arr={cartItems} onRemoveItem={onRemoveItem}/>
+      <Header 
+      arr={cartItems} 
+      onRemoveItem={onRemoveItem}/>
       
       <Banner/>
-
-      <section className="main">
-        <div className="headerSection">
-          <h2>{searchValue ? `Search by request: "${searchValue}"` : "All shoes"}</h2>
-          <div className="search">
-            <img src="../images/search.svg" alt="search" className="searchIcon"/>
-            <input onChange={onChangeSearchInput} value={searchValue} placeholder="Search ..."/>
-          </div>
-        </div>
-        <div className="shopItems">
-          {
-            items.filter((item) => item.title.toLowerCase().includes(searchValue.toLowerCase()))
-            .map((item) => (
-              <Card 
-              id={item.id}
-              text={item.title} 
-              price={item.price} 
-              imgUrl={item.imgUrl}
-              productCode={item.productCode}
-              key={item.id}
-              onPlus={onAddToCart}
-              />
-            ))
-          }
-        </div>
-      </section>
+      <Routes>
+        <Route path="/" element={
+          <Home searchValue={searchValue} 
+                setSearchValue={setSearchValue} 
+                onAddToCart={onAddToCart}
+                onAddToFavourites={onAddToFavourites}
+                onRemoveFromFavourites={onRemoveFromFavourites}/>}/>
+        <Route path="/favourites" element={<Favourites 
+            favourites={favouriteItems} 
+            onAddToCart={onAddToCart}
+            onAddToFavourites={onAddToFavourites}
+            onRemoveFromFavourites={onRemoveFromFavourites}/>}/>
+      </Routes>
+      
     </div>
   );
 }
