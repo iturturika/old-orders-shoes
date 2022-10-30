@@ -1,14 +1,7 @@
 import React from 'react'
-import axios from "axios";
+
 import {Card} from "../components/Card/index"
 export function Home(props) {
-  const [items, setItems] = React.useState([]);
-  React.useEffect(() => {
-    axios.get('https://634d7620acb391d34a9df634.mockapi.io/items')
-    .then((res) => {
-      setItems(res.data);
-    });
-  }, []);
   
 
     const onChangeSearchInput = (event) => {
@@ -25,7 +18,7 @@ export function Home(props) {
         </div>
         <div className="shopItems">
           {
-            items.filter((item) => item.title.toLowerCase().includes(props.searchValue.toLowerCase()))
+            props.items.filter((item) => item.title.toLowerCase().includes(props.searchValue.toLowerCase()))
             .map((item) => (
               <Card 
               id={item.id}
@@ -36,6 +29,8 @@ export function Home(props) {
               key={item.id}
               onPlus={props.onAddToCart}
               onClickFavourite={props.onAddToFavourites}
+              added={props.cartItems.some(obj => Number(obj.id) === Number(props.items.id))}
+              favorited={false}
               />
             ))
           }
