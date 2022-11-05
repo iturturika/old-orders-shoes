@@ -7,6 +7,28 @@ export function Home(props) {
     const onChangeSearchInput = (event) => {
         props.setSearchValue(event.target.value);
       }
+    
+    const renderItems = () => {
+      return(
+        props.loading 
+        ? [...Array(8)] 
+        : props.items.filter((item) => item.title.toLowerCase().includes(props.searchValue.toLowerCase()))).map((item) => (
+          <Card 
+          id={item.id}
+          text={item.title} 
+          price={item.price} 
+          imgUrl={item.imgUrl}
+          productCode={item.productCode}
+          key={item.id}
+          onPlus={props.onAddToCart}
+          onClickFavourite={props.onAddToFavourites}
+          added={props.cartItems.some(obj => Number(obj.id) === Number(item.id))}
+          favorited={props.favourites.some(obj => Number(obj.id) === Number(item.id))}
+          loading={props.loading}
+          />
+        ))
+    }
+  
   return (
     <section className="main">
         <div className="headerSection">
@@ -17,22 +39,9 @@ export function Home(props) {
           </div>
         </div>
         <div className="shopItems">
-          {
-            props.items.filter((item) => item.title.toLowerCase().includes(props.searchValue.toLowerCase()))
-            .map((item) => (
-              <Card 
-              id={item.id}
-              text={item.title} 
-              price={item.price} 
-              imgUrl={item.imgUrl}
-              productCode={item.productCode}
-              key={item.id}
-              onPlus={props.onAddToCart}
-              onClickFavourite={props.onAddToFavourites}
-              added={props.cartItems.some(obj => Number(obj.id) === Number(props.items.id))}
-              favorited={false}
-              />
-            ))
+          { 
+            renderItems()
+              
           }
         </div>
       </section>

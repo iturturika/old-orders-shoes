@@ -20,7 +20,8 @@ export function Favourites(props) {
               key={item.id}
               onPlus={props.onAddToCart}
               onClickFavourite={props.onAddToFavourites}
-              favorited={true}
+              added={props.cartItems.some(obj => Number(obj.id) === Number(item.id))}
+              favorited={props.favourites.some(obj => Number(obj.id) === Number(item.id))}
               />
             ))
           }

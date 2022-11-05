@@ -11,12 +11,15 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
   const [favourites, setFavourites] = React.useState([]);
+  const [sumCart, isSumCart] = React.useState(0);
+  const [isLoading, setIsLoading] = React.useState(true);
   React.useEffect(() => {
     async function fetchData(){
+    setIsLoading(true);
     const cartItemsResponse = await axios.get('https://634d7620acb391d34a9df634.mockapi.io/cartItems');
     const favouritesResponse = await axios.get('https://634d7620acb391d34a9df634.mockapi.io/favourites');
     const itemsResponse = await axios.get('https://634d7620acb391d34a9df634.mockapi.io/items');
-    
+    setIsLoading(false);
     setCartItems(cartItemsResponse.data);
     setFavourites(favouritesResponse.data);
     setItems(itemsResponse.data);
@@ -34,6 +37,7 @@ function App() {
       } else {
         axios.post('https://634d7620acb391d34a9df634.mockapi.io/cartItems', obj);
         setCartItems((prev) => [...prev, obj]);
+        isSumCart(sumCart + obj.price)
       }
     } catch(error){
 
@@ -68,21 +72,25 @@ function App() {
     <div className="wrapper">
       <Header 
       arr={cartItems} 
-      onRemoveItem={onRemoveItem}/>
+      onRemoveItem={onRemoveItem}
+      price={sumCart}/>
       
       <Banner/>
       <Routes>
         <Route path="/" element={
           <Home searchValue={searchValue}
                 items={items}
+                favourites={favourites} 
                 cartItems={cartItems}
                 setSearchValue={setSearchValue} 
                 onAddToCart={onAddToCart}
-                onAddToFavourites={onAddToFavourites}/>}/>
-        <Route path="/favourites" element={<Favourites 
-            favourites={favourites} 
-            onAddToCart={onAddToCart}
-            onAddToFavourites={onAddToFavourites}/>}/>
+                onAddToFavourites={onAddToFavourites}/>}
+                loading={isLoading}/>
+        <Route path="/favourites" element={
+        <Favourites favourites={favourites} 
+                    cartItems={cartItems}
+                    onAddToCart={onAddToCart}
+                    onAddToFavourites={onAddToFavourites}/>}/>
       </Routes>
       
     </div>

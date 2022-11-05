@@ -38,12 +38,12 @@ export const Drawer = (props) => {
               <li className="cartTotalBlockList">
                 <span>Final:</span>
                 <div></div>
-                <b>1000mdl</b>
+                <b>{props.price}mdl</b>
               </li>
               <li className="cartTotalBlockList">
                 <span>Comission 5%:</span>
                 <div></div>
-                <b>50mdl</b>
+                <b>{(props.price/100)*5}mdl</b>
               </li>
             </ul>
             <button className="buttonCart">Buy</button>
