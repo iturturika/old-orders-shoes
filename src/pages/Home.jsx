@@ -2,17 +2,19 @@ import React from 'react'
 
 import {Card} from "../components/Card/index"
 export function Home(props) {
-  
+    
 
     const onChangeSearchInput = (event) => {
         props.setSearchValue(event.target.value);
       }
     
     const renderItems = () => {
+      const filteredItems = props.items.filter((item) => item.title.toLowerCase().includes(props.searchValue.toLowerCase()));
+      
       return(
-        props.loading 
-        ? [...Array(8)] 
-        : props.items.filter((item) => item.title.toLowerCase().includes(props.searchValue.toLowerCase()))).map((item) => (
+        props.isLoading 
+        ? [...Array(5).fill(<Card isLoading={props.isLoading}/>)] 
+        : filteredItems).map((item) => (
           <Card 
           id={item.id}
           text={item.title} 
@@ -24,9 +26,10 @@ export function Home(props) {
           onClickFavourite={props.onAddToFavourites}
           added={props.cartItems.some(obj => Number(obj.id) === Number(item.id))}
           favorited={props.favourites.some(obj => Number(obj.id) === Number(item.id))}
-          loading={props.loading}
+          isLoading={props.isLoading}
           />
-        ))
+        )
+        )
     }
   
   return (

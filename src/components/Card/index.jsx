@@ -1,7 +1,7 @@
 import React from 'react'
 import ContentLoader from "react-content-loader"
 
-export const Card = ({added = false, favorited = false, onPlus, text, imgUrl, price, productCode, id, onClickFavourite, loading }) => {
+export const Card = ({added = false, favorited = false, onPlus, text, imgUrl, price, productCode, id, onClickFavourite, isLoading }) => {
   const [isAddedToCart, setIsAddedToCart] = React.useState(added);
   const [isAddedToFavourite, setIsAddedToFavourite] = React.useState(favorited);
   const onClickPlus = () => {
@@ -32,7 +32,7 @@ export const Card = ({added = false, favorited = false, onPlus, text, imgUrl, pr
    
     <div className="card">
           {
-            loading ?  
+            isLoading ?  
             <ContentLoader 
             speed={2}
             width={240}
@@ -45,15 +45,15 @@ export const Card = ({added = false, favorited = false, onPlus, text, imgUrl, pr
             <rect x="2" y="200" rx="10" ry="10" width="130" height="20" /> 
             <rect x="2" y="240" rx="10" ry="10" width="80" height="25" /> 
             <rect x="158" y="237" rx="10" ry="10" width="30" height="30" />
-          </ContentLoader> : <>
-              <img src={isAddedToFavourite ? "../images/addedFavouriteIcon.png" : "../images/favouriteIcon.svg"} alt="favouriteIcon" className="favourite" onClick={onClickFavouriteIcon}/>
-          <img src={imgUrl} alt="shoes" className="shoesCardIcon"/>
-          <h3>{text}</h3>
-          <div className="bottomSectionCard">
-           <h4>PRICE: <p className="price">{price}mdl</p>
-           </h4>
-           <img src={isAddedToCart ? "../images/addedIcon.svg" : "../images/adToCartIcon.png"} alt="addToCartIcon" className="addToCartIcon" onClick={onClickPlus}/>
-          </div>
+          </ContentLoader> : 
+          <>
+            <img src={isAddedToFavourite ? "../images/addedFavouriteIcon.png" : "../images/favouriteIcon.svg"} alt="favouriteIcon" className="favourite" onClick={onClickFavouriteIcon}/>
+            <img src={imgUrl} alt="shoes" className="shoesCardIcon"/>
+            <h3>{text}</h3>
+              <div className="bottomSectionCard">
+                <h4>PRICE: <p className="price">{price}mdl</p></h4>
+                <img src={isAddedToCart ? "../images/addedIcon.svg" : "../images/adToCartIcon.png"} alt="addToCartIcon" className="addToCartIcon" onClick={onClickPlus}/>
+              </div>
             </>
           }
         </div>
