@@ -242,8 +242,9 @@ body {
   background-color: rgba(0, 0, 0, 0.1);
   z-index: 1;
   .drawer {
-    
-    align-items: center;
+    display: grid;
+    grid-template-rows: 10% 90%;
+    align-items: end;
     position: fixed;
     width: 385px;
     height: 100%;
@@ -255,13 +256,13 @@ body {
   }
   .cartHeader {
     display: flex;
-    align-items: center;
+    
   }
   .emptyCart { 
-    display: flex;
-    flex-direction: column;
-    margin: 0 auto;
-    
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+    margin-bottom: 300px;
   }
   .closeButton {
     margin-left: 170px;
@@ -284,10 +285,14 @@ body {
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
 }
+
+
 .cartItems {
+  align-items: flex-start;
   overflow: auto;
   max-height: 650px;
   width: 120%;
+
   
 }
   .shoesCartIcon {
@@ -322,6 +327,8 @@ body {
     -o-transition: 0.15s ease-in-out;
   }
   .cartTotalBlock{
+    display: flex;
+    flex-direction: column;
     margin: 30px 30px 0px 30px;
     list-style: none;
     .cartTotalBlockList{

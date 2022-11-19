@@ -4,10 +4,12 @@ import {Drawer} from '../Drawer/index';
 
 export const Header = (props) => {
   const [isOpenCart, setIsOpenCart] = React.useState(false);
+
   const onClickCart = () => {
     setIsOpenCart(!isOpenCart);
   }
-  
+
+  const totalPrice = props.arr.reduce((sum, obj) => (obj.price + sum), 0);
 
 
   return (
@@ -15,6 +17,7 @@ export const Header = (props) => {
         {isOpenCart ? <Drawer 
                         arr={props.arr} 
                         isCartOpened={onClickCart} 
+                        price={totalPrice}
                         removedFromCart={props.onRemoveItem}/> : undefined}
         <div className="LeftPart">
           <div><Link to="/"><img src="../images/logo.png" alt="cart" width={'50px'} className="logoIcon"/></Link></div>
@@ -26,7 +29,7 @@ export const Header = (props) => {
         </div>
         <div className="RightPart">
           <ul className="">
-            <li className="icon"><img src="../images/cart.svg" alt="cart" width={"30px"} onClick={onClickCart}/><p>1200mdl</p></li>
+            <li className="icon"><img src="../images/cart.svg" alt="cart" width={"30px"} onClick={onClickCart}/><p>{totalPrice}mdl</p></li>
             <li className="icon"><img src="../images/heart.svg" alt="heart" width={"30px"}/></li>
             <li className="icon"><Link to="/favourites"><img src="../images/user.svg" alt="user" width={"30px"}/></Link></li>
           </ul>
