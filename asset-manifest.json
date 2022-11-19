@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/old-orders-shoes/static/css/main.af2780b5.css",
-    "main.js": "/old-orders-shoes/static/js/main.3c6166e2.js",
+    "main.js": "/old-orders-shoes/static/js/main.d875b3ea.js",
     "index.html": "/old-orders-shoes/index.html",
     "main.af2780b5.css.map": "/old-orders-shoes/static/css/main.af2780b5.css.map",
-    "main.3c6166e2.js.map": "/old-orders-shoes/static/js/main.3c6166e2.js.map"
+    "main.d875b3ea.js.map": "/old-orders-shoes/static/js/main.d875b3ea.js.map"
   },
   "entrypoints": [
     "static/css/main.af2780b5.css",
-    "static/js/main.3c6166e2.js"
+    "static/js/main.d875b3ea.js"
   ]
 }
