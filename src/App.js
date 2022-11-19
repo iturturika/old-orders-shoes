@@ -11,7 +11,6 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [cartItems, setCartItems] = React.useState([]);
   const [favourites, setFavourites] = React.useState([]);
-  const [sumCart, isSumCart] = React.useState(0);
   const [isLoading, setIsLoading] = React.useState(true);
   React.useEffect(() => {
     async function fetchData(){
@@ -38,7 +37,7 @@ function App() {
       } else {
         axios.post('https://634d7620acb391d34a9df634.mockapi.io/cartItems', obj);
         setCartItems((prev) => [...prev, obj]);
-        isSumCart(sumCart + obj.price)
+      
       }
     } catch(error){
 
@@ -74,7 +73,7 @@ function App() {
       <Header 
       arr={cartItems} 
       onRemoveItem={onRemoveItem}
-      price={sumCart}/>
+     />
       
       <Banner/>
       <Routes>
