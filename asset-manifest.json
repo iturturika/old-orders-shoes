@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/old-orders-shoes/static/css/main.af2780b5.css",
+    "main.js": "/old-orders-shoes/static/js/main.afeb7062.js",
+    "index.html": "/old-orders-shoes/index.html",
+    "main.af2780b5.css.map": "/old-orders-shoes/static/css/main.af2780b5.css.map",
+    "main.afeb7062.js.map": "/old-orders-shoes/static/js/main.afeb7062.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.af2780b5.css",
+    "static/js/main.afeb7062.js"
+  ]
+}
